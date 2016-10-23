@@ -5,29 +5,29 @@ export default class MainInterface extends Component {
   constructor(props) {
     super(props);
 
-    let tempKiosk = [
-      { id: 1, location: 'San Francisco', batteriesInUse: 7, batteriesToReplenish: 17, batteriesInStock: 18 },
-      { id: 2, location: 'Santa Ana', batteriesInUse: 19, batteriesToReplenish: 12, batteriesInStock: 38 },
-      { id: 3, location: 'San Leandro', batteriesInUse: 44, batteriesToReplenish: 33, batteriesInStock: 12 },
-      { id: 4, location: 'San Diego', batteriesInUse: 3, batteriesToReplenish: 1, batteriesInStock: 50 },
-      { id: 5, location: 'Los Angeles', batteriesInUse: 1, batteriesToReplenish: 9, batteriesInStock: 5 },
-                    ];
+    const tempKiosk = [
+      { id: 1, mall: 'Westfield San Francisco', city: 'San Francisco', state: 'CA', zip: 94103, batteriesInUse: 7, batteriesToReplenish: 17, batteriesInStock: 18 },
+      { id: 2, mall: 'Westfield Santa Ana', city: 'Santa Ana', state: 'CA', zip: 92307, batteriesInUse: 19, batteriesToReplenish: 12, batteriesInStock: 38 },
+      { id: 3, mall: 'Westfield San Leandro', city: 'San Leandro', state: 'CA', zip: 92222, batteriesInUse: 44, batteriesToReplenish: 33, batteriesInStock: 12 },
+      { id: 4, mall: 'The Grove', city: 'San Diego', state: 'CA', zip: 97118, batteriesInUse: 3, batteriesToReplenish: 1, batteriesInStock: 50 },
+      { id: 5, mall: 'Angel Park Mall', city: 'Los Angeles', state: 'CA', zip: 90199, batteriesInUse: 1, batteriesToReplenish: 9, batteriesInStock: 5 },
+      { id: 6, mall: 'The Great Mall', city: 'AnytownUSA', state: 'CA', zip: 42497, batteriesInUse: 7, batteriesToReplenish: 17, batteriesInStock: 18 },
+    ];
 
     this.state = {
-      kiosk: tempKiosk
+      kiosk: tempKiosk,
     };
 
-    console.log("thisstatekiosk", this.state.kiosk)
+    console.log('thisstatekiosk', this.state.kiosk);
   }
 
   render() {
     return (
       <div className="mainInterface">
-        <KioskGroup 
-        props={this.state.kiosk}
+        <KioskGroup
+          kiosk={this.state.kiosk}
         />
-
-      </div> 
-    )
+      </div>
+    );
   }
 }

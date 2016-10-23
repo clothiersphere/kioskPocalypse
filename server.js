@@ -14,9 +14,6 @@ app.get('/', (req, res) => {
   res.send('Hi');
 });
 
-app.get('/api/users', (req, res) => {
-  res.send('Hi');
-});
 // app.post('/api/users', db.checkUser);
 
 
