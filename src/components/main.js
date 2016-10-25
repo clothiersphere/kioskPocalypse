@@ -16,6 +16,7 @@ class Main extends Component {
   render() {
     const { mall, city, state, zip, batteriesInUse, batteriesToReplenish, batteriesInStock } = this.props;
     return (
+      <div className="kioskCreation"> 
       <Form model="user" onSubmit={val => this.handleSubmit(val)}>
         <Field model="user.mall">
           <input type="text" placeholder="mall" />
@@ -40,6 +41,7 @@ class Main extends Component {
         </Field>
         <button>Create New Kiosk Entry</button>
       </Form>
+      </div> 
     );
   }
 }

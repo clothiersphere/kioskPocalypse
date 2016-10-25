@@ -1,13 +1,15 @@
-DROP DATABASE IF EXISTS users;
-CREATE DATABASE users;
+DROP DATABASE IF EXISTS kiosks;
+CREATE DATABASE kiosks;
 
-\c users
+\c kiosks
 
-CREATE TABLE users (
-  first_name VARCHAR(40),
-  last_name VARCHAR(40),
-  password VARCHAR(25),
-  email VARCHAR(40) UNIQUE, 
+CREATE TABLE kiosks (
+  id VARCHAR(20),
+  mall VARCHAR(40),
+  city VARCHAR(40),
+  state VARCHAR(5),
   zip INT,
-  profile_photo VARCHAR(200)
+  batteriesOnLoan INT,
+  batteriesToReplace INT,
+  batteryCount INT, 
 )
