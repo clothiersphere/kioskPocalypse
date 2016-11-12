@@ -27,7 +27,7 @@ module.exports = {
   },
   devServer: {
     proxy: {
-      '/api/**': 'http://localhost:1234',
+      '/kiosks/**': 'http://localhost:1234',
     },
     historyApiFallback: true,
     contentBase: './public',

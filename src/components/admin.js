@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import KioskGroup from './kioskGroup';
+import KioskSubmit from './main';
 
-export default class MainInterface extends Component {
+export default class AdminPanel extends Component {
   constructor(props) {
     super(props);
 
@@ -27,6 +28,8 @@ export default class MainInterface extends Component {
         <KioskGroup
           kiosk={this.state.kiosk}
         />
+
+        <KioskSubmit/> 
       </div>
     );
   }

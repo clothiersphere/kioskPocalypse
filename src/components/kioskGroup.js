@@ -30,15 +30,15 @@ const KioskGroup = (props) => {
     <table className="kioskTable table table-hover table-inverse">
       <thead>
         <tr>
-          <th className="row-Service">Status</th>
-          <th className="row-ID">ID</th>
-          <th className="row-Mall">Mall</th>
-          <th className="row-City">City</th>
-          <th className="row-State">State</th>
-          <th className="row-Zip">Zip</th>
-          <th className="row-BIN">Batteries In Use</th>
-          <th className="row-BTR">Batteries To Replenish</th>
-          <th className="row-BIS">Batteries In Stock</th>
+          <th id="bootstrap-override" className="row-Service">Status</th>
+          <th id="bootstrap-override" className="row-ID">ID</th>
+          <th id="bootstrap-override" className="row-Mall">Mall</th>
+          <th id="bootstrap-override" className="row-City">City</th>
+          <th id="bootstrap-override" className="row-State">State</th>
+          <th id="bootstrap-override" className="row-Zip">Zip</th>
+          <th id="bootstrap-override" className="row-BIN">Batteries In Use</th>
+          <th id="bootstrap-override" className="row-BTR">Batteries To Replenish</th>
+          <th id="bootstrap-override" className="row-BIS">Batteries In Stock</th>
         </tr>
       </thead>
       <tbody>

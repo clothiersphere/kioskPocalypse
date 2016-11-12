@@ -2,22 +2,25 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 import { Field, Form, actions } from 'react-redux-form';
-import { submitUserInfo } from '../actions/index';
-
+import { Button } from 'react-bootstrap';
+import { createKiosk } from '../actions/index';
 
 class Main extends Component {
 
 
   handleSubmit(val) {
-    console.log(val);
-    // dispatch(actions.submit('user', submitUserInfo(val)))
+    console.log("HANDLESUBMIT", val);
+    return createKiosk(val);
   }
 
   render() {
-    const { mall, city, state, zip, batteriesInUse, batteriesToReplenish, batteriesInStock } = this.props;
+    const { mall, city, state, zip, batteriesOnLoan, batteriesToReplace, batteryCount } = this.props;
     return (
       <div className="kioskCreation"> 
       <Form model="user" onSubmit={val => this.handleSubmit(val)}>
+        <Field model="user.kioskId">
+          <input type="text" placeholder="kioskId" />
+        </Field>
         <Field model="user.mall">
           <input type="text" placeholder="mall" />
         </Field>
@@ -30,16 +33,16 @@ class Main extends Component {
         <Field model="user.zip">
           <input type="text" placeholder="Zip" />
         </Field>
-        <Field model="user.batteriesInUse">
-          <input type="text" placeholder="batteriesInUse" />
+        <Field model="user.batteriesOnLoan">
+          <input type="text" placeholder="batteriesOnLoan" />
         </Field>
-        <Field model="user.batteriesToReplenish">
-          <input type="text" placeholder="batteriesToReplenish" />
+        <Field model="user.batteriesToReplace">
+          <input type="text" placeholder="batteriesToReplace" />
         </Field>
-        <Field model="user.batteriesInStock">
-          <input type="text" placeholder="batteriesInStock" />
+        <Field model="user.batteryCount">
+          <input type="text" placeholder="batteryCount" />
         </Field>
-        <button>Create New Kiosk Entry</button>
+        <Button bsStyle="info" type="submit">Create New Kiosk Entry</Button>
       </Form>
       </div> 
     );
@@ -49,14 +52,15 @@ class Main extends Component {
 function mapStateToProps(state) {
   return {
     id: state.id,
+    kioskId: state.kioskId,
     mall: state.mall,
     city: state.city,
     zip: state.zip,
-    batteriesInUse: state.batteriesInUse,
-    batteriesToReplenish: state.batteriesToReplenish,
-    batteriesInStock: state.batteriesInStock,
+    batteriesOnLoan: state.batteriesOnLoan,
+    batteriesToReplace: state.batteriesToReplace,
+    batteryCount: state.batteryCount,
     isLoggedin: state.payload,
   };
 }
 
-export default connect(mapStateToProps, { submitUserInfo })(Main);
+export default connect(mapStateToProps, { createKiosk })(Main);
