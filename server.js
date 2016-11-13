@@ -21,7 +21,7 @@ app.get('/kiosks/create', (req, res) => {
 //GET 
   // admin
     //getall kiosks
-app.get('/kiosks', kiosks.findAll);
+app.get('/kiosks/all', kiosks.findAll);
       //get info on a single kiosk
 app.get('/kiosks/:id', kiosks.findById);
 
@@ -35,7 +35,7 @@ app.post('/kiosks/create', kiosks.createEntry);
     //rent a charger 
     //return a charger 
     //sell a charger 
-app.post('/kiosks/update/:id', kiosks.updateKiosk)
+app.post('/kiosks/update/:id', kiosks.updateKiosk);
     
 
 

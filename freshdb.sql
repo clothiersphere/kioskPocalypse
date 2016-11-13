@@ -4,7 +4,7 @@ CREATE DATABASE kiosks;
 \c kiosks
 
 CREATE TABLE kiosks (
-  id VARCHAR(20),
+  id SERIAL PRIMARY KEY,
   kioskId VARCHAR(20),
   mall VARCHAR(40),
   city VARCHAR(40),

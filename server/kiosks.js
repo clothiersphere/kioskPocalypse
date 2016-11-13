@@ -7,11 +7,21 @@ const db = pgp(connectionString);
 
 const findKiosk = new PS('find-user', 'SELECT * FROM Kiosks WHERE kioskId = $1');
 const addKiosk = new PS('add-user', 'INSERT INTO Kiosks(kioskId, mall, city, state, zip, batteriesOnLoan, batteriesToReplace, batteryCount) VALUES($1, $2, $3, $4, $5, $6, $7, $8)');
+
+const findAllKiosk = new PS('find-all', 'SELECT * FROM Kiosks');
 // .then(successFn).catch(failureFn) === .then(successFn).then(undefined, failureFn)
 
-let findAll = (req, res, next) => {
+let findAll = (req, res) => {
 
-  // .catch(next);
+  return db.any(findAllKiosk)
+    .then((result) => {
+      console.log(result)
+      return res.status(201).send(result);
+    })
+    .catch((e) => {
+      console.log(e)
+    })
+
 };
 
 let findById = (req, res, next) => {
