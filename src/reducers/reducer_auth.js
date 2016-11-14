@@ -1,9 +1,10 @@
-import { SUBMIT_USER_INFO, CREATE_KIOSK_ENTRY, LOGIN } from '../actions/index';
+import { SUBMIT_USER_INFO, CREATE_KIOSK_ENTRY, LOGIN, FETCH_KIOSK_LIST } from '../actions/index';
 
 
 const INITIAL_STATE = {
   loggingIn: false,
-  kioskCount: [],
+  kioskCount: 0,
+  kioskList: [],
 };
 
 export default function (state = INITIAL_STATE, action) {
@@ -21,7 +22,12 @@ export default function (state = INITIAL_STATE, action) {
     case CREATE_KIOSK_ENTRY:
       return {
         ...state,
-        kioskCount: action.payload,
+        kioskList: action.payload,
+      };
+    case FETCH_KIOSK_LIST:
+      return {
+        ...state,
+        kioskList: action.payload,
       };
     default:
       return state;

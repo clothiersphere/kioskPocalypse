@@ -2,6 +2,7 @@ import axios from 'axios';
 
 // export const SUBMIT_USER_INFO = 'SUBMIT_USER_INFO';
 export const CREATE_KIOSK_ENTRY = 'CREATE_KIOSK_ENTRY';
+export const FETCH_KIOSK_LIST = 'FETCH_KIOSK_LIST';
 
 function payload(type, request) {
   return {
@@ -29,9 +30,20 @@ function payload(type, request) {
 //       }
 //     });  
 // }
+export function fetchKioskList() {
+  const request = axios({ 
+    method: 'GET',
+    url: 'http://localhost:8080/kiosks/all',
+  })
+
+  return request 
+    .then((response) => {
+      return payload(FETCH_KIOSK_LIST, response.data);
+    })
+}
 
 export function createKiosk(data) {
-  console.log(data: "got into actions createKiosk")
+  console.log("got into actions createKiosk", data)
 
   const request = axios({ 
     method: 'POST',
@@ -41,7 +53,8 @@ export function createKiosk(data) {
 
   return request
     .then( response => {
-      payload(CREATE_KIOSK_ENTRY, response);
+      console.log("response", response)
+      payload(CREATE_KIOSK_ENTRY, response.data);
     })
     .catch(error => {
       if (error.response) {

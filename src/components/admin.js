@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import KioskGroup from './kioskGroup';
 import KioskSubmit from './main';
+import fetchKioskList from '../actions/index.js';
 
 export default class AdminPanel extends Component {
   constructor(props) {
@@ -20,6 +21,10 @@ export default class AdminPanel extends Component {
     };
 
     console.log('thisstatekiosk', this.state.kiosk);
+  }
+
+   componentWillMount() {
+    this.props.fetchKioskList();
   }
 
   render() {

@@ -50,6 +50,7 @@ class Main extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log("state", state)
   return {
     id: state.id,
     kioskId: state.kioskId,
