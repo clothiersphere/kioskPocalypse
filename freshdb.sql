@@ -5,12 +5,13 @@ CREATE DATABASE kiosks;
 
 CREATE TABLE kiosks (
   id SERIAL PRIMARY KEY,
-  kioskId VARCHAR(20),
+  kiosk_id VARCHAR(20),
   mall VARCHAR(40),
   city VARCHAR(40),
   state VARCHAR(15),
   zip INT,
-  batteriesOnLoan INT,
-  batteriesToReplace INT,
-  batteryCount INT 
+  batteries_on_loan INT,
+  batteries_to_replace INT,
+  battery_count INT,
+  online BOOLEAN
 )

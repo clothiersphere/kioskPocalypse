@@ -2,36 +2,33 @@ import React from 'react';
 import KioskEntry from './kioskEntry';
 
 const KioskGroup = (props) => {
-  if (!props) {
+  
+  if (!props.kiosk) {
     return <div> Loading...</div>;
   }
 
-  const kioskItem = props.kiosk.map((data, index) =>
+  console.log("props", props)
+  const kioskEntry = props.kiosk.map(data =>
     <KioskEntry
-      id={data.id}
+      kioskid={data.kiosk_id}
       key={data.id}
       mall={data.mall}
       city={data.city}
       state={data.state}
       zip={data.zip}
-      batteriesInUse={data.batteriesInUse}
-      batteriesToReplenish={data.batteriesToReplenish}
-      batteriesInStock={data.batteriesInStock}
+      batteries_on_loan={data.batteries_on_loan}
+      batteries_to_replace={data.batteries_to_replace}
+      battery_count={data.battery_count}
       online={data.online}
     />
   );
 
-  // return (
-  //   <div>
-  //     { kioskItem }
-  //   </div>
-  // );
   return (
     <table className="kioskTable table table-hover table-inverse">
       <thead>
         <tr>
           <th id="bootstrap-override" className="row-Service">Status</th>
-          <th id="bootstrap-override" className="row-ID">ID</th>
+          <th id="bootstrap-override" className="row-ID">KioskID</th>
           <th id="bootstrap-override" className="row-Mall">Mall</th>
           <th id="bootstrap-override" className="row-City">City</th>
           <th id="bootstrap-override" className="row-State">State</th>
@@ -42,7 +39,7 @@ const KioskGroup = (props) => {
         </tr>
       </thead>
       <tbody>
-        { kioskItem }
+        { kioskEntry }
       </tbody>
     </table>
   );
