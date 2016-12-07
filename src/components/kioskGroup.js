@@ -24,18 +24,23 @@ const KioskGroup = (props) => {
   );
 
   return (
-    <table className="kioskTable table table-hover table-inverse">
+    <table className="kioskTable">
+      <caption> Kiosks across the Nation</caption>
       <thead>
         <tr>
-          <th id="bootstrap-override" className="row-Service">Status</th>
-          <th id="bootstrap-override" className="row-ID">KioskID</th>
-          <th id="bootstrap-override" className="row-Mall">Mall</th>
-          <th id="bootstrap-override" className="row-City">City</th>
-          <th id="bootstrap-override" className="row-State">State</th>
-          <th id="bootstrap-override" className="row-Zip">Zip</th>
-          <th id="bootstrap-override" className="row-BIN">Batteries In Use</th>
-          <th id="bootstrap-override" className="row-BTR">Batteries To Replenish</th>
-          <th id="bootstrap-override" className="row-BIS">Batteries In Stock</th>
+          <th rowSpan="2" id="bootstrap-override" className="row-Service">Status</th>
+          <th rowSpan="2" id="bootstrap-override" className="row-ID">KioskID</th>
+          <th colSpan="4">Location</th>
+          <th colSpan="3">Batteries</th>
+        </tr>
+        <tr> 
+          <th rowSpan="2" id="bootstrap-override" className="row-Mall">Mall</th>
+          <th rowSpan="2" id="bootstrap-override" className="row-City">City</th>
+          <th rowSpan="2" id="bootstrap-override" className="row-State">State</th>
+          <th rowSpan="2" id="bootstrap-override" className="row-Zip">Zip</th>
+          <th id="bootstrap-override" className="row-BIN">In Use</th>
+          <th id="bootstrap-override" className="row-BTR">To Restock</th>
+          <th id="bootstrap-override" className="row-BIS">In Stock</th>
         </tr>
       </thead>
       <tbody>
